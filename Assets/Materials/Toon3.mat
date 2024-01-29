@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PlayerMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: 1f969486c8102314da7a5ff064e37cf9,
+  m_Name: Toon3
+  m_Shader: {fileID: -6465566751694194690, guid: 1a1bcb6b758978b449859bc996753386,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -25,6 +25,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Albedo:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -65,7 +69,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_f166943b2fb8476992b0e3b117231f32_Texture_1_Texture2D:
+    - _SampleTexture2D_ad574e678468422d9f2e959ca618ac91_Texture_1_Texture2D:
         m_Texture: {fileID: 2800000, guid: aca59f180022d2a458aa18a78294b9ba, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -102,11 +106,8 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
-    - _Float: 0.26
-    - _Fresnel_Power: 11.02
-    - _Fresnel_Threshold: 0.008
     - _GlossMapScale: 0
-    - _Glossiness: 0
+    - _Glossiness: 30.08
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
@@ -114,7 +115,8 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Rim_Amount: 0.4
+    - _Rim_Amount: 0.67
+    - _Rim_Threshold: 0.5
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -126,16 +128,15 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Base_Colour: {r: 0.0029814949, g: 0.6010091, b: 0.6320754, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Lit_Colour: {r: 1, g: 1, b: 1, a: 0}
-    - _Shadow_Colour: {r: 0.11320752, g: 0.1105211, b: 0.080633655, a: 0}
+    - _Rim_Colour: {r: 1, g: 1, b: 1, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Vector3: {r: 4.8, g: 3.33, b: -0.09, a: 0}
-    - _Vector3_1: {r: 0.25, g: 0, b: 0.33, a: 0}
+    - _Specular_Colour: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &7891039955723499639
+--- !u!114 &9096051825886713713
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
