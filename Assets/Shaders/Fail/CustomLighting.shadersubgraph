@@ -29,9 +29,6 @@
         },
         {
             "m_Id": "f19bfeba72fa41cd88fea2bfb2b9560e"
-        },
-        {
-            "m_Id": "8ddeb09838c447ddb94a9e976cd5032b"
         }
     ],
     "m_GroupDatas": [],
@@ -217,29 +214,6 @@
 
 {
     "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Vector3MaterialSlot",
-    "m_ObjectId": "5e4f8273e8da4196acfcb0ae484a1005",
-    "m_Id": 0,
-    "m_DisplayName": "Albedo",
-    "m_SlotType": 0,
-    "m_Hidden": false,
-    "m_ShaderOutputName": "Albedo",
-    "m_StageCapability": 3,
-    "m_Value": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
-    },
-    "m_DefaultValue": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
-    },
-    "m_Labels": []
-}
-
-{
-    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.SubGraphOutputNode",
     "m_ObjectId": "814538e091e34657a41aef5cf64998b1",
     "m_Group": {
@@ -316,52 +290,6 @@
 }
 
 {
-    "m_SGVersion": 1,
-    "m_Type": "UnityEditor.ShaderGraph.CustomFunctionNode",
-    "m_ObjectId": "8ddeb09838c447ddb94a9e976cd5032b",
-    "m_Group": {
-        "m_Id": ""
-    },
-    "m_Name": "CustomLightHandling (Custom Function)",
-    "m_DrawState": {
-        "m_Expanded": true,
-        "m_Position": {
-            "serializedVersion": "2",
-            "x": -508.0,
-            "y": 163.0,
-            "width": 208.0,
-            "height": 246.0
-        }
-    },
-    "m_Slots": [
-        {
-            "m_Id": "5e4f8273e8da4196acfcb0ae484a1005"
-        },
-        {
-            "m_Id": "ceba8d0182a54fc39cf4c9b922be7f9d"
-        },
-        {
-            "m_Id": "bd868f851c964c63b1c5d4ed0f4a809d"
-        }
-    ],
-    "synonyms": [
-        "code",
-        "HLSL"
-    ],
-    "m_Precision": 0,
-    "m_PreviewExpanded": true,
-    "m_DismissedVersion": 0,
-    "m_PreviewMode": 0,
-    "m_CustomColors": {
-        "m_SerializableColors": []
-    },
-    "m_SourceType": 1,
-    "m_FunctionName": "CustomLightHandling",
-    "m_FunctionSource": "",
-    "m_FunctionBody": "#if SHADERGRAPH_PREVIEW\n\t\n\tColour = 1;\n#else\n\tLight light = GetMainLight();\n\tfloat3 radiance = light.coloor;\n\tfloat diffuse = saturate(dot(Normal,light.direction));\n\tColour = Albedo * radiance * diffuse;\n#endif"
-}
-
-{
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector3MaterialSlot",
     "m_ObjectId": "986ecc821e6142558f490b4cbcfe6308",
@@ -393,52 +321,6 @@
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Colour",
-    "m_StageCapability": 3,
-    "m_Value": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
-    },
-    "m_DefaultValue": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
-    },
-    "m_Labels": []
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Vector3MaterialSlot",
-    "m_ObjectId": "bd868f851c964c63b1c5d4ed0f4a809d",
-    "m_Id": 2,
-    "m_DisplayName": "Colour",
-    "m_SlotType": 1,
-    "m_Hidden": false,
-    "m_ShaderOutputName": "Colour",
-    "m_StageCapability": 3,
-    "m_Value": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
-    },
-    "m_DefaultValue": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
-    },
-    "m_Labels": []
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Vector3MaterialSlot",
-    "m_ObjectId": "ceba8d0182a54fc39cf4c9b922be7f9d",
-    "m_Id": 1,
-    "m_DisplayName": "Normal",
-    "m_SlotType": 0,
-    "m_Hidden": false,
-    "m_ShaderOutputName": "Normal",
     "m_StageCapability": 3,
     "m_Value": {
         "x": 0.0,
