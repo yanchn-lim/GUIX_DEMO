@@ -61,20 +61,6 @@
                 },
                 "m_SlotId": 0
             }
-        },
-        {
-            "m_OutputSlot": {
-                "m_Node": {
-                    "m_Id": "f19bfeba72fa41cd88fea2bfb2b9560e"
-                },
-                "m_SlotId": 0
-            },
-            "m_InputSlot": {
-                "m_Node": {
-                    "m_Id": "40664fcadb1d4b059ba80c2e188c2817"
-                },
-                "m_SlotId": 2
-            }
         }
     ],
     "m_VertexContext": {
@@ -110,12 +96,12 @@
 {
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector3MaterialSlot",
-    "m_ObjectId": "3bdaf1bbe03f4f899fdddc0de7c73513",
-    "m_Id": 2,
-    "m_DisplayName": "Normal",
-    "m_SlotType": 0,
+    "m_ObjectId": "28ce7e5e73d0404a9d0b19ed0aca4681",
+    "m_Id": 1,
+    "m_DisplayName": "Color",
+    "m_SlotType": 1,
     "m_Hidden": false,
-    "m_ShaderOutputName": "Normal",
+    "m_ShaderOutputName": "Color",
     "m_StageCapability": 3,
     "m_Value": {
         "x": 0.0,
@@ -142,7 +128,7 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -122.0,
+            "x": -121.0,
             "y": -1.0,
             "width": 297.0,
             "height": 302.0
@@ -150,13 +136,10 @@
     },
     "m_Slots": [
         {
-            "m_Id": "bc7b9d97ba5a49b7ac51f36c2e45bf4a"
-        },
-        {
             "m_Id": "fb8f3405f1554f65982a2c3b1989fb89"
         },
         {
-            "m_Id": "3bdaf1bbe03f4f899fdddc0de7c73513"
+            "m_Id": "28ce7e5e73d0404a9d0b19ed0aca4681"
         }
     ],
     "synonyms": [
@@ -298,29 +281,6 @@
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
-    "m_StageCapability": 3,
-    "m_Value": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
-    },
-    "m_DefaultValue": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
-    },
-    "m_Labels": []
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Vector3MaterialSlot",
-    "m_ObjectId": "bc7b9d97ba5a49b7ac51f36c2e45bf4a",
-    "m_Id": 1,
-    "m_DisplayName": "Colour",
-    "m_SlotType": 1,
-    "m_Hidden": false,
-    "m_ShaderOutputName": "Colour",
     "m_StageCapability": 3,
     "m_Value": {
         "x": 0.0,
