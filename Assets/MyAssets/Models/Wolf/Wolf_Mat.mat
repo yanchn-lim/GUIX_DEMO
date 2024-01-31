@@ -115,10 +115,10 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Rim_Amount: 0.17
-    - _Rim_Threshold: 2.02
-    - _ShadowStrength: -7.15
-    - _Smoothness: 0.19
+    - _Rim_Amount: 0.38
+    - _Rim_Threshold: 1.31
+    - _ShadowStrength: -4.71
+    - _Smoothness: 0.44
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -127,7 +127,7 @@ Material:
     - _UseRamp: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _shad: 0.0407
+    - _shad: 0.0469
     m_Colors:
     - _Ambient_Color: {r: 1, g: 1, b: 1, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}

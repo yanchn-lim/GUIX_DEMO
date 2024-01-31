@@ -3269,6 +3269,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PopUp
       objectReference: {fileID: 0}
+    - target: {fileID: 2198112849874712634, guid: 0feb15b9417c7427dad40e91c559902a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3724719524665751802, guid: 0feb15b9417c7427dad40e91c559902a,
         type: 3}
       propertyPath: m_LocalPosition.x
