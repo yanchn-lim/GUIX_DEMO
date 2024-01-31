@@ -8,16 +8,37 @@ public class PlayerInteract : MonoBehaviour
     public Transform player;
     public LayerMask mask;
     Ray ray;
+    Interactable currInt;
+    bool rayHit;
+
     // Update is called once per frame
     void Update()
     {
-        ray = new(player.position, Camera.main.transform.forward);
-        Debug.DrawRay(player.position, Camera.main.transform.forward,Color.red);
-        if (Physics.Raycast(ray,out RaycastHit hit, checkDist, mask))
+        DetectInteractable();
+
+        if(rayHit)
         {
-            hit.collider.gameObject.GetComponent<Interactable>().Interact();
+            HandleInput();
         }
-           
     }
 
+    void DetectInteractable()
+    {
+        ray = new(player.position, Camera.main.transform.forward);
+        Debug.DrawRay(player.position, Camera.main.transform.forward,Color.red);
+        rayHit = Physics.Raycast(ray, out RaycastHit hit, checkDist, mask);
+        if (rayHit)
+        {
+            currInt = hit.collider.gameObject.GetComponent<Interactable>();
+        }
+        currInt.PopUp(rayHit);
+    }
+
+    void HandleInput()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            currInt.Interact();
+        }
+    }
 }

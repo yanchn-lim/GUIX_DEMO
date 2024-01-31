@@ -4,5 +4,7 @@ using UnityEngine;
 
 public interface I_Interact
 {
+    void PopUp(bool check);
+
     void Interact();
 }

@@ -5,4 +5,5 @@ using UnityEngine;
 public abstract class Interactable : MonoBehaviour, I_Interact
 {
     public abstract void Interact();
+    public abstract void PopUp(bool check);
 }
