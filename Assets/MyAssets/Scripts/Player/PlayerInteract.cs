@@ -31,7 +31,14 @@ public class PlayerInteract : MonoBehaviour
         {
             currInt = hit.collider.gameObject.GetComponent<Interactable>();
         }
-        currInt.PopUp(rayHit);
+        try
+        {
+            currInt.PopUp(rayHit);
+        }
+        catch
+        {
+            Debug.Log("no current interactable");
+        }
     }
 
     void HandleInput()
@@ -39,6 +46,7 @@ public class PlayerInteract : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             currInt.Interact();
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 }
