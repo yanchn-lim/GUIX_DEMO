@@ -36,5 +36,27 @@ public class PlayerStat : MonoBehaviour
     }
     #endregion
 
+    private void Start()
+    {
+        currHealth = maxHealth;
+        currStam = maxStam;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            ReduceHealth(5f);
+            ReduceStam(4f);
+        }
+
+        UpdateHUD();
+    }
+
+    void UpdateHUD()
+    {
+        healthBar.fillAmount = currHealth / maxHealth;
+        staminaBar.fillAmount = currStam / maxStam;
+    }
 
 }
