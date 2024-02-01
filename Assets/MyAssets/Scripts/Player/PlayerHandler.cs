@@ -8,13 +8,24 @@ public class PlayerHandler : MonoBehaviour
     public GameObject StatusPanel;
     public GameObject SkillPanel;
 
+    PlayerAbilities PA;
+    PlayerStat PS;
+
     private void Awake()
     {
         DontDestroyOnLoad(this);
-    }
+        PA = GetComponent<PlayerAbilities>();
+        PS = GetComponent<PlayerStat>()
+;    }
 
     private void Start()
     {
+        UpdateHUD_Location();
+    }
+
+    private void Update()
+    {
+        HandleInputs();
         UpdateHUD_Location();
     }
 
@@ -32,6 +43,24 @@ public class PlayerHandler : MonoBehaviour
                 StatusPanel.SetActive(true);
                 SkillPanel.SetActive(true);
                 break;
+        }
+    }
+
+    void HandleInputs()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            PA.Ability1();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            PA.Ability2();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            PA.Ability3();
         }
     }
 }
