@@ -3121,6 +3121,13 @@ MonoBehaviour:
   IsDodging: 0
   ani: {fileID: 6982812147792166538}
   input: {fileID: 135756641490723382}
+  playerHitbox: {fileID: 0}
+  dodgeMask:
+    serializedVersion: 2
+    m_Bits: 766
+  normMask:
+    serializedVersion: 2
+    m_Bits: 254
 --- !u!114 &1387702312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4926,7 +4933,6 @@ GameObject:
   - component: {fileID: 135756641490723382}
   - component: {fileID: 4416926083490954822}
   - component: {fileID: 6982812147792166539}
-  - component: {fileID: 6982812147792166540}
   m_Layer: 7
   m_Name: PlayerArmature
   m_TagString: Player
@@ -5473,29 +5479,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ph: {fileID: 1387702311}
---- !u!136 &6982812147792166540
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4416926083490954826}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 512
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 511
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.28
-  m_Height: 1.6
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.8, z: 0}
 --- !u!1 &7065094238742214005
 GameObject:
   m_ObjectHideFlags: 0

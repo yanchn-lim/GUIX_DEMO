@@ -20,6 +20,10 @@ public class PlayerHandler : MonoBehaviour
     float dodgeFrames = 0.6f;
     float dodgeDist = 1.5f;
     public StarterAssetsInputs input;
+
+    public CapsuleCollider playerHitbox;
+    public LayerMask dodgeMask;
+    public LayerMask normMask;
     private void Awake()
     {
         DontDestroyOnLoad(this);
@@ -36,6 +40,7 @@ public class PlayerHandler : MonoBehaviour
     {
         HandleInputs();
         UpdateHUD_Location();
+        character.excludeLayers = IsDodging? dodgeMask : normMask ;
     }
 
     void UpdateHUD_Location()
@@ -103,7 +108,6 @@ public class PlayerHandler : MonoBehaviour
         ani.SetTrigger("Roll");
         Vector3 dir = new(input.move.x, 0, input.move.y);
         dir.Normalize();
-
         StartCoroutine(DodgeMove(dir));
     }
 
