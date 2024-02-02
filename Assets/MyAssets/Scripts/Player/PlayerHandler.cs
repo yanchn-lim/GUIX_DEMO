@@ -127,26 +127,22 @@ public class PlayerHandler : MonoBehaviour
     {
         IsDodging = true;
         ani.SetTrigger("Roll");
-        Vector3 dir = new(input.move.x * character.transform.forward.x, 0, input.move.y*character.transform.forward.z);
-
-        dir.Normalize();
 
         if(location != PlayerLocation.TOWN)
             PS.ReduceStam(20f);
 
-        StartCoroutine(DodgeMove(dir));
+        StartCoroutine(DodgeMove());
     }
 
-    IEnumerator DodgeMove(Vector3 dir)
+    IEnumerator DodgeMove()
     {
         float currFrame = 0;
         float timing = 0.016f;
-        if (dir == Vector3.zero)
-            dir = character.transform.forward;
+
         while (currFrame < dodgeFrames)
         {
             currFrame += timing;
-            character.Move(dir * dodgeDist * timing);
+            character.Move(character.transform.forward * dodgeDist * timing);
             yield return new WaitForSeconds(timing);
         }
     }

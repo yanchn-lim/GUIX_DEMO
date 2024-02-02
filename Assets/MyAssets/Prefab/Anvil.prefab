@@ -3792,6 +3792,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PopUp
       objectReference: {fileID: 0}
+    - target: {fileID: 6582275493564292117, guid: 81f5570bb55677d408350bb05fe16ef4,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

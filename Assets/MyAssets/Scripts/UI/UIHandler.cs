@@ -10,4 +10,10 @@ public class UIHandler : MonoBehaviour
         gameObject.SetActive(false);
         MouseHandler.LockMouse();
     }
+
+    public void ClosePanel(GameObject obj)
+    {
+        obj.SetActive(false);
+        MouseHandler.LockMouse();
+    }
 }

@@ -11,7 +11,7 @@ public class Anvil :Interactable
     {
         Debug.Log("I am anvil");
         CraftingUI.SetActive(true);
-        MouseHandler.LockMouse();
+        MouseHandler.UnlockMouse();
     }
 
     public override void PopUp(bool check)
