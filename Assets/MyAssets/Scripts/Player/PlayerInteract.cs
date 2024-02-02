@@ -37,7 +37,7 @@ public class PlayerInteract : MonoBehaviour
         }
         catch
         {
-            Debug.Log("no current interactable");
+            
         }
     }
 

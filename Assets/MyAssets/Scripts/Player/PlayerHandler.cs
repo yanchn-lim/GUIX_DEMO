@@ -1,16 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using StarterAssets;
 
 public class PlayerHandler : MonoBehaviour
 {
     public PlayerLocation location;
     public GameObject StatusPanel;
     public GameObject SkillPanel;
-
+    public CharacterController character;
     PlayerAbilities PA;
     PlayerStat PS;
 
+    bool IsWeaponSheath = true;
+    public bool IsDodging = false;
+
+    public Animator ani;
+
+    float dodgeFrames = 0.6f;
+    float dodgeDist = 1.5f;
+    public StarterAssetsInputs input;
     private void Awake()
     {
         DontDestroyOnLoad(this);
@@ -62,6 +71,59 @@ public class PlayerHandler : MonoBehaviour
         {
             PA.Ability3();
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SheathWeapon();
+        }
+
+        if (Input.GetKeyDown(KeyCode.X) && !IsDodging)
+        {
+            Dodge();
+        }
+    }
+
+    void SheathWeapon()
+    {
+        if (IsWeaponSheath)
+        {
+            IsWeaponSheath = false;
+            ani.SetTrigger("Unsheath");
+        }
+        else
+        {
+            IsWeaponSheath = true;
+            ani.SetTrigger("Sheath");
+        }
+    }
+
+    void Dodge()
+    {
+        IsDodging = true;
+        ani.SetTrigger("Roll");
+        Vector3 dir = new(input.move.x, 0, input.move.y);
+        dir.Normalize();
+
+        StartCoroutine(DodgeMove(dir));
+    }
+
+    IEnumerator DodgeMove(Vector3 dir)
+    {
+        float currFrame = 0;
+        float timing = 0.016f;
+        Debug.Log(dir);
+        while (currFrame < dodgeFrames)
+        {
+            currFrame += timing;
+            character.Move(dir * dodgeDist * timing);
+            yield return new WaitForSeconds(timing);
+        }
+    }
+
+    public void EndDodge()
+    {
+        IsDodging = false;
+        Debug.Log("dodge ended");
     }
 }
 
