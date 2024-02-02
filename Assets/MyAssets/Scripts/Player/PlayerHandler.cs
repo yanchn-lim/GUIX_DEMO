@@ -21,9 +21,9 @@ public class PlayerHandler : MonoBehaviour
     float dodgeDist = 1.5f;
     public StarterAssetsInputs input;
 
-    public CapsuleCollider playerHitbox;
     public LayerMask dodgeMask;
     public LayerMask normMask;
+
     private void Awake()
     {
         DontDestroyOnLoad(this);
@@ -33,6 +33,7 @@ public class PlayerHandler : MonoBehaviour
 
     private void Start()
     {
+        MouseHandler.input = input;
         UpdateHUD_Location();
     }
 
@@ -86,8 +87,26 @@ public class PlayerHandler : MonoBehaviour
         {
             Dodge();
         }
+
+        if (input.sprint && location != PlayerLocation.TOWN)
+        {
+            PS.ReduceStam(Time.deltaTime * 10f);
+        }
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            OpenInvetory();
+        }
     }
 
+    void OpenInvetory()
+    {
+        MouseHandler.LockMouse();
+
+    }
+
+
+    #region Player Control
     void SheathWeapon()
     {
         if (IsWeaponSheath)
@@ -100,14 +119,21 @@ public class PlayerHandler : MonoBehaviour
             IsWeaponSheath = true;
             ani.SetTrigger("Sheath");
         }
+
+        ani.SetBool("IsSheathed", IsWeaponSheath);
     }
 
     void Dodge()
     {
         IsDodging = true;
         ani.SetTrigger("Roll");
-        Vector3 dir = new(input.move.x, 0, input.move.y);
+        Vector3 dir = new(input.move.x * character.transform.forward.x, 0, input.move.y*character.transform.forward.z);
+
         dir.Normalize();
+
+        if(location != PlayerLocation.TOWN)
+            PS.ReduceStam(20f);
+
         StartCoroutine(DodgeMove(dir));
     }
 
@@ -115,7 +141,8 @@ public class PlayerHandler : MonoBehaviour
     {
         float currFrame = 0;
         float timing = 0.016f;
-        Debug.Log(dir);
+        if (dir == Vector3.zero)
+            dir = character.transform.forward;
         while (currFrame < dodgeFrames)
         {
             currFrame += timing;
@@ -129,6 +156,7 @@ public class PlayerHandler : MonoBehaviour
         IsDodging = false;
         Debug.Log("dodge ended");
     }
+    #endregion
 }
 
 public enum PlayerLocation

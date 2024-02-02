@@ -14,23 +14,26 @@ public class PlayerStat : MonoBehaviour
     public float maxStam;
     public float currStam;
 
+    bool isStaminaReady;
+
     #region Stat change
-    void ReduceHealth(float amt)
+    public void ReduceHealth(float amt)
     {
         currHealth = Mathf.Clamp(currHealth-amt,0,maxHealth);
     }
 
-    void RecoverHealth(float amt)
+    public void RecoverHealth(float amt)
     {
         currHealth = Mathf.Clamp(currHealth + amt, 0, maxHealth);
     }
 
-    void ReduceStam(float amt)
+    public void ReduceStam(float amt)
     {
         currStam = Mathf.Clamp(currStam - amt, 0, maxStam);
+        isStaminaReady = false;
     }
 
-    void RecoverStam(float amt)
+    public void RecoverStam(float amt)
     {
         currStam = Mathf.Clamp(currStam + amt, 0, maxStam);
     }
@@ -40,6 +43,8 @@ public class PlayerStat : MonoBehaviour
     {
         currHealth = maxHealth;
         currStam = maxStam;
+
+        StartCoroutine(RegenerateStamina());
     }
 
     private void Update()
@@ -59,4 +64,30 @@ public class PlayerStat : MonoBehaviour
         staminaBar.fillAmount = currStam / maxStam;
     }
 
+    IEnumerator RegenerateStamina()
+    {
+        float delayTimer = 0f;
+        float timer = 1f;
+        while (true)
+        {
+            if (!isStaminaReady)
+            {
+                while (delayTimer < timer)
+                {
+                    delayTimer += 0.01f;
+                    yield return new WaitForSeconds(0.01f);
+                }
+                delayTimer = 0f;
+                isStaminaReady = true;
+            }
+               
+            while(currStam < maxStam && isStaminaReady)
+            {
+                RecoverStam(Time.deltaTime * 8);
+                yield return null;
+            }
+
+            yield return null;
+        }
+    }
 }

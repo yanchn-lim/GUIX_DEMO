@@ -11,6 +11,7 @@ public class Pedestal : Interactable
     {
         Debug.Log("I am pedestal");
         augmentUI.SetActive(true);
+        MouseHandler.LockMouse();
     }
 
     public override void PopUp(bool check)
