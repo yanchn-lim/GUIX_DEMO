@@ -37,6 +37,11 @@ public class PlayerStat : MonoBehaviour
     {
         currStam = Mathf.Clamp(currStam + amt, 0, maxStam);
     }
+
+    public bool EnoughStamina(float amt)
+    {
+        return currStam > amt;
+    }
     #endregion
 
     private void Start()

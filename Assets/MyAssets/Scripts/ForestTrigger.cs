@@ -4,9 +4,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class ForestTrigger : MonoBehaviour
 {
-    public PlayerHandler player;
+    PlayerHandler player;
     public GameObject popup;
+    GameHandler gh;
 
+    private void Start()
+    {
+        gh = GameHandler.instance;
+        player = PlayerHandler.instance;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -18,6 +24,9 @@ public class ForestTrigger : MonoBehaviour
 
     public void LoadForestScene()
     {
+        //gh.SpawnPlayer(gh.forestSpawn);
+        //player.transform.position = gh.forestSpawn.position;
+
         SceneManager.LoadScene("ForestScene");
         player.location = PlayerLocation.FOREST;
         MouseHandler.LockMouse();

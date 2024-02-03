@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class GameHandler : MonoBehaviour
 {
-    public GameHandler instance;
+    public static GameHandler instance;
     public Transform player;
     public Transform forestSpawn;
+    public Transform townSpawn;
+    CharacterController c;
 
     private void Awake()
     {
@@ -17,8 +19,10 @@ public class GameHandler : MonoBehaviour
         }
     }
 
-    void SpawnPlayer(Transform spawn)
+    public void SpawnPlayer(Transform spawn)
     {
-        player.position = spawn.position;
+        Debug.Log("spawning player");
+        //player.position = spawn.position;
+        Debug.Log($"{player.position}, {spawn.position}");
     }
 }

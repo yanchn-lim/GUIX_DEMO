@@ -18,15 +18,21 @@ public class PlayerHandler : MonoBehaviour
     public Animator ani;
 
     float dodgeFrames = 0.6f;
-    float dodgeDist = 1.5f;
+    float dodgeDist = 2f;
     public StarterAssetsInputs input;
 
     public LayerMask dodgeMask;
     public LayerMask normMask;
 
+    public static PlayerHandler instance;
+
     private void Awake()
     {
         DontDestroyOnLoad(this);
+        if(instance == null)
+        {
+            instance = this;
+        }
         PA = GetComponent<PlayerAbilities>();
         PS = GetComponent<PlayerStat>()
 ;    }
@@ -83,14 +89,9 @@ public class PlayerHandler : MonoBehaviour
             SheathWeapon();
         }
 
-        if (Input.GetKeyDown(KeyCode.X) && !IsDodging)
+        if (Input.GetKeyDown(KeyCode.Space) && !IsDodging)
         {
             Dodge();
-        }
-
-        if (input.sprint && location != PlayerLocation.TOWN)
-        {
-            PS.ReduceStam(Time.deltaTime * 10f);
         }
 
         if (Input.GetKeyDown(KeyCode.I))
@@ -125,6 +126,9 @@ public class PlayerHandler : MonoBehaviour
 
     void Dodge()
     {
+        if (!PS.EnoughStamina(20f))
+            return;
+
         IsDodging = true;
         ani.SetTrigger("Roll");
 
