@@ -103,17 +103,18 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Optimized Leaf Material
-  m_Shader: {fileID: -6465566751694194690, guid: 9920c1f1781549a46ba081a2a15a16ec,
-    type: 3}
+  m_Shader: {fileID: 4800000, guid: 99134b1f0c27d54469a840832a28fadf, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - EFFECT_HUE_VARIATION
+  - EFFECT_SUBSURFACE
+  - _WINDQUALITY_BETTER
+  m_InvalidKeywords:
   - BACKFACE_NORMAL_MODE_MIRROR
-  - _WINDQUALITY_BEST
-  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
-  m_DoubleSidedGI: 0
+  m_DoubleSidedGI: 1
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
@@ -253,7 +254,7 @@ Material:
     m_Floats:
     - BACKFACE_NORMAL_MODE: 1
     - EFFECT_BILLBOARD: 0
-    - EFFECT_EXTRA_TEX: 1
+    - EFFECT_EXTRA_TEX: 0
     - _AO: 6.11
     - _AddPrecomputedVelocity: 0
     - _Alpha: 1
@@ -261,6 +262,8 @@ Material:
     - _AlphaClipThreshold: 0.805
     - _AlphaToMask: 1
     - _BaseLight: 0.772
+    - _BillboardKwToggle: 0
+    - _BillboardShadowFade: 0.5
     - _Blend: 0
     - _BlendModePreserveSpecular: 0
     - _BlendOp: 0
@@ -284,7 +287,7 @@ Material:
     - _METALNESS: 0
     - _Metallic: 0
     - _Mode: 1
-    - _NormalMapKwToggle: 1
+    - _NormalMapKwToggle: 0
     - _Occlusion: 12.6
     - _OcclusionStrength: 1
     - _OldHueVarBehavior: 0
@@ -309,13 +312,14 @@ Material:
     - _SquashAmount: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
-    - _SubsurfaceIndirect: 0.25
-    - _SubsurfaceKwToggle: 0
+    - _SubsurfaceIndirect: 0.229
+    - _SubsurfaceKwToggle: 1
     - _Surface: 0
     - _TranslucencyViewDependency: 0.737
+    - _TwoSided: 2
     - _UVSec: 0
     - _WINDQUALITY: 4
-    - _WindQuality: 0
+    - _WindQuality: 3
     - _WorkflowMode: 0
     - _ZTest: 4
     - _ZWrite: 1
@@ -325,7 +329,7 @@ Material:
     - _Ambient_Color: {r: 0, g: 0, b: 0, a: 0}
     - _BASE_COLOR: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 0.19575472, g: 0.7830189, b: 0.19575472, a: 1}
-    - _Color: {r: 0.08495018, g: 0.7830189, b: 0.08495018, a: 1}
+    - _Color: {r: 0.14297791, g: 0.5943396, b: 0.14297791, a: 1}
     - _DiffuseColor: {r: 0.26274508, g: 0.8862745, b: 0.8155137, a: 0}
     - _EMISSION_COLOR: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0.000099907316, g: 0.00017504423, b: 0.00010218503, a: 1}
@@ -335,7 +339,7 @@ Material:
     - _SPECULAR_COLOR: {r: 1, g: 1, b: 1, a: 0}
     - _SpecColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecularColour: {r: 1, g: 1, b: 1, a: 0}
-    - _SubsurfaceColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SubsurfaceColor: {r: 0.16940743, g: 0.3490566, b: 0.14324494, a: 1}
     - _TranslucencyColor: {r: 0.73, g: 0.85, b: 0.40999997, a: 1}
     - _TreeInstanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _TreeInstanceScale: {r: 1, g: 1, b: 1, a: 1}
@@ -349,11 +353,11 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Optimized Bark Material
-  m_Shader: {fileID: -6465566751694194690, guid: 26844ef9258017644a37074bc03bdf57,
-    type: 3}
+  m_Shader: {fileID: 4800000, guid: 99134b1f0c27d54469a840832a28fadf, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _WINDQUALITY_NONE
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
@@ -390,6 +394,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _ExtraTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _GlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -418,6 +426,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SubsurfaceTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _TranslucencyMap:
         m_Texture: {fileID: 2800000, guid: cdc250f1a3355f746b701244a2c1cbb6, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -441,12 +453,18 @@ Material:
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _BaseLight: 1
+    - _BillboardKwToggle: 0
+    - _BillboardShadowFade: 0.5
     - _Blend: 0
     - _CastShadows: 1
     - _Cull: 2
     - _Cutoff: 0.3
     - _DstBlend: 0
+    - _Glossiness: 0.5
+    - _HueVariationKwToggle: 0
     - _METALNESS: 0
+    - _Metallic: 0
+    - _NormalMapKwToggle: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Rim_Amount: 0
@@ -458,7 +476,10 @@ Material:
     - _Smoothness: 0
     - _SquashAmount: 1
     - _SrcBlend: 1
+    - _SubsurfaceIndirect: 0.25
+    - _SubsurfaceKwToggle: 0
     - _Surface: 0
+    - _TwoSided: 2
     - _WindQuality: 0
     - _ZTest: 4
     - _ZWrite: 1
@@ -470,9 +491,11 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EMISSION_COLOR: {r: 0, g: 0, b: 0, a: 0}
     - _HueVariation: {r: 1, g: 0.5, b: 0, a: 0.1}
+    - _HueVariationColor: {r: 1, g: 0.5, b: 0, a: 0.1}
     - _Rim_Colour: {r: 0, g: 0, b: 0, a: 0}
     - _SPECULAR_COLOR: {r: 1, g: 1, b: 1, a: 0}
     - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _SubsurfaceColor: {r: 1, g: 1, b: 1, a: 1}
     - _TreeInstanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _TreeInstanceScale: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
