@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 7845887705643029882}
   - component: {fileID: 73268618902326774}
   - component: {fileID: 5714613487073915110}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Point_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,7 +472,7 @@ GameObject:
   - component: {fileID: 4193214809167312717}
   - component: {fileID: 4961337968289312283}
   - component: {fileID: 4206047137929187535}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -960,7 +960,7 @@ GameObject:
   - component: {fileID: 1485621906028102009}
   - component: {fileID: 7625902632655590558}
   - component: {fileID: 2029877441650166770}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Directional Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1344,7 +1344,7 @@ GameObject:
   - component: {fileID: 2859997694291842503}
   - component: {fileID: 3819510719524976061}
   - component: {fileID: 7206404952317618165}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Point_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1562,7 +1562,7 @@ GameObject:
   - component: {fileID: 6195785302720104917}
   - component: {fileID: 7342282787585342027}
   - component: {fileID: 2093978236506964616}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Point_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1858,7 +1858,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5949966671460868438}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1893,7 +1893,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 203303536137673012}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SelectWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2710,7 +2710,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4576122273963986123}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pedestal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4644,7 +4644,7 @@ GameObject:
   - component: {fileID: 2453375443252448259}
   - component: {fileID: 7316532925740444331}
   - component: {fileID: 5118205670115958409}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}

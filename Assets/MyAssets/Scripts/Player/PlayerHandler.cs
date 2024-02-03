@@ -98,6 +98,11 @@ public class PlayerHandler : MonoBehaviour
         {
             OpenInvetory();
         }
+
+        if (Input.GetMouseButtonDown(0) && !IsWeaponSheath)
+        {
+            Attack();
+        }
     }
 
     void OpenInvetory()
@@ -156,6 +161,28 @@ public class PlayerHandler : MonoBehaviour
         IsDodging = false;
         Debug.Log("dodge ended");
     }
+
+
+    #region ATTACK
+
+    float atkTimer = 0;
+    public int atkSeq = 0;
+    public BoxCollider weaponHitBox;
+    public LayerMask attackLayer;
+    void Attack()
+    {
+        string atkName = $"Attack_{atkSeq + 1}";
+        ani.SetTrigger(atkName);
+        atkSeq += 1;
+        if(atkSeq > 3)
+        {
+            atkSeq = 0;
+        }
+    }
+
+
+    #endregion
+
     #endregion
 }
 
