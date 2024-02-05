@@ -8,6 +8,7 @@ public class PlayerHandler : MonoBehaviour
     public PlayerLocation location;
     public GameObject StatusPanel;
     public GameObject SkillPanel;
+    public GameObject InventoryPanel;
     public CharacterController character;
     PlayerAbilities PA;
     PlayerStat PS;
@@ -105,10 +106,22 @@ public class PlayerHandler : MonoBehaviour
         }
     }
 
+    bool inventoryOpen = false;
+
     void OpenInvetory()
     {
-        MouseHandler.LockMouse();
-
+        if (inventoryOpen)
+        {
+            MouseHandler.LockMouse();
+            InventoryPanel.SetActive(false);
+            inventoryOpen = false;
+        }
+        else
+        {
+            MouseHandler.UnlockMouse();
+            InventoryPanel.SetActive(true);
+            inventoryOpen = true;
+        }
     }
 
 

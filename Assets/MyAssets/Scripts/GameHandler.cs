@@ -22,7 +22,7 @@ public class GameHandler : MonoBehaviour
     public void SpawnPlayer(Transform spawn)
     {
         Debug.Log("spawning player");
-        //player.position = spawn.position;
+        player.position = spawn.position;
         Debug.Log($"{player.position}, {spawn.position}");
     }
 }
