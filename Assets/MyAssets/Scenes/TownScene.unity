@@ -4996,7 +4996,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &574191765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12060,6 +12060,8 @@ MonoBehaviour:
   character: {fileID: 4416926083490954816}
   IsDodging: 0
   ani: {fileID: 6982812147792166538}
+  dodgeFrames: 0.4
+  dodgeDist: 5
   input: {fileID: 135756641490723382}
   dodgeMask:
     serializedVersion: 2
@@ -13027,6 +13029,11 @@ PrefabInstance:
       propertyPath: m_Size
       value: 0.4147483
       objectReference: {fileID: 0}
+    - target: {fileID: 2927678517197864225, guid: 511a05214c6644a6e8ff9e78d8d7ed6c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3335721304302093663, guid: 511a05214c6644a6e8ff9e78d8d7ed6c,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -13036,6 +13043,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789297489441116907, guid: 511a05214c6644a6e8ff9e78d8d7ed6c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4250105541774702663, guid: 511a05214c6644a6e8ff9e78d8d7ed6c,
         type: 3}
@@ -13112,6 +13124,22 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6136961702838553207, guid: 511a05214c6644a6e8ff9e78d8d7ed6c,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424053539198308061, guid: 511a05214c6644a6e8ff9e78d8d7ed6c,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424053539198308061, guid: 511a05214c6644a6e8ff9e78d8d7ed6c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e0a479dba226aa8478d35a3f00400faf,
+        type: 3}
     - target: {fileID: 7170783100713430779, guid: 511a05214c6644a6e8ff9e78d8d7ed6c,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -13156,6 +13184,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220437197988787118, guid: 511a05214c6644a6e8ff9e78d8d7ed6c,
+        type: 3}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220437197988787118, guid: 511a05214c6644a6e8ff9e78d8d7ed6c,
+        type: 3}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220437197988787118, guid: 511a05214c6644a6e8ff9e78d8d7ed6c,
+        type: 3}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
