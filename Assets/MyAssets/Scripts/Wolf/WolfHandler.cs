@@ -51,7 +51,7 @@ public class WolfHandler : MonoBehaviour
         ani.SetFloat("Blend", blend);
         prevValue = agent.velocity.normalized.magnitude;
 
-        dirToPlayer =  transform.position - playerT.position;
+        dirToPlayer = playerT.position - transform.position;
 
         if (Input.GetKeyDown(KeyCode.F))
         {
@@ -63,9 +63,12 @@ public class WolfHandler : MonoBehaviour
 
     IEnumerator Attack()
     {
+        agent.isStopped = true;
         rb.AddForce(transform.up * 10f,ForceMode.Impulse);
         yield return new WaitForSeconds(0.5f);
-        rb.AddForce(dirToPlayer * 10f, ForceMode.Impulse);
+        rb.AddForce(dirToPlayer.normalized * 100f, ForceMode.Impulse);
+        yield return new WaitForSeconds(5f);
+        agent.isStopped = false;
     }
 
     private void FixedUpdate()
