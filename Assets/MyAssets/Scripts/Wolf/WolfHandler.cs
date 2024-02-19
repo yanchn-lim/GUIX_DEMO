@@ -5,8 +5,9 @@ using UnityEngine.AI;
 
 public class WolfHandler : MonoBehaviour
 {
-    public float walkRadius = 5f;
+    public float walkRadius = 10f;
     public NavMeshAgent agent;
+    public Rigidbody rb;
 
     public LayerMask area;
     public float rad;
@@ -20,6 +21,8 @@ public class WolfHandler : MonoBehaviour
     Wolf_Idle idleState;
     Wolf_Roam roamState;
     Wolf_Attack attackState;
+
+    Vector3 dirToPlayer;
 
     private void Start()
     {
@@ -47,6 +50,27 @@ public class WolfHandler : MonoBehaviour
         float blend = Mathf.Lerp(lV,hV,0.02f);
         ani.SetFloat("Blend", blend);
         prevValue = agent.velocity.normalized.magnitude;
+
+        dirToPlayer =  transform.position - playerT.position;
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            StartCoroutine(Attack());
+        }
+
+        fsm.Update();
+    }
+
+    IEnumerator Attack()
+    {
+        rb.AddForce(transform.up * 10f,ForceMode.Impulse);
+        yield return new WaitForSeconds(0.5f);
+        rb.AddForce(dirToPlayer * 10f, ForceMode.Impulse);
+    }
+
+    private void FixedUpdate()
+    {
+        fsm.FixedUpdate();
     }
 
     public float delay;
@@ -54,21 +78,6 @@ public class WolfHandler : MonoBehaviour
     public void GetRandomState()
     {
         int state = (int)Random.Range(1, fsm.States.Count);
-        fsm.SetCurrentState(state);
+        fsm.SetCurrentState(1);
     }
-
-    IEnumerator RandomRoam()
-    {
-        while (true)
-        {
-            Vector3 randPos = Random.insideUnitSphere * walkRadius;
-            
-            bool yes = NavMesh.SamplePosition(randPos,out NavMeshHit hit, rad,area);
-
-            if (yes)
-                agent.destination = hit.position;
-            yield return new WaitForSeconds(Random.Range(1f, 8f));
-        }
-    }
-
 }

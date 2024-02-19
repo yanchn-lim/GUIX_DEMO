@@ -80,6 +80,7 @@ public class Wolf_Roam : WolfState
     {
         if(mWolf.agent.velocity.magnitude <= 0.2)
         {
+            Debug.Log("ooo");
             mFsm.SetCurrentState((int)Wolf_State.IDLE);
         }
     }
@@ -91,11 +92,17 @@ public class Wolf_Attack : WolfState
     {
         mId = (int)Wolf_State.ATTACK;
     }
-
+    Rigidbody rb;
     public override void Enter()
     {
         Debug.Log("WOLF enter attack");
+        rb = mWolf.rb;
         mWolf.Invoke("GetRandomState", mWolf.delay);
+        Attack();
+    }
 
+    void Attack()
+    {
+        rb.AddForce(rb.transform.forward * 5f,ForceMode.Impulse);
     }
 }
