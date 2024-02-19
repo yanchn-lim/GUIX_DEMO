@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class WolfStat : MonoBehaviour
 {
-    public Image healthBar;
-
+    public Slider healthBar;
     public float maxHealth;
     public float currHealth;
 
@@ -26,21 +25,19 @@ public class WolfStat : MonoBehaviour
     private void Start()
     {
         currHealth = maxHealth;
+        healthBar.maxValue = maxHealth;
+        healthBar.minValue = 0;
+        healthBar.value = currHealth;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            ReduceHealth(5f);
-        }
-
         UpdateHUD();
     }
 
     void UpdateHUD()
     {
-        healthBar.fillAmount = currHealth / maxHealth;
+        healthBar.value = currHealth;
     }
 
 

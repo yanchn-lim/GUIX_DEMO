@@ -44,6 +44,7 @@ public class PlayerAnimationHandler : MonoBehaviour
 
     float atkTimer = 0;
     float atkDelay = 1f;
+
     IEnumerator AtkTimer()
     {
         while(atkTimer > atkDelay)
@@ -56,10 +57,12 @@ public class PlayerAnimationHandler : MonoBehaviour
     void EndAttackIdle()
     {
         ph.atkSeq = 0;
+
     }
 
     void StartAttack()
     {
+        ph.attacking = true;
         ph.weaponHitBox.enabled = true;
         Physics.CheckBox(ph.weaponHitBox.bounds.center, ph.weaponHitBox.bounds.extents, Quaternion.identity, ph.attackLayer);
     }
@@ -67,5 +70,6 @@ public class PlayerAnimationHandler : MonoBehaviour
     void EndAttack()
     {
         ph.weaponHitBox.enabled = false;
+        ph.attacking = false;
     }
 }

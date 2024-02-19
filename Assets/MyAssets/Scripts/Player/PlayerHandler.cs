@@ -27,6 +27,9 @@ public class PlayerHandler : MonoBehaviour
 
     public static PlayerHandler instance;
 
+    public FSM fsm;
+
+
     private void Awake()
     {
         DontDestroyOnLoad(this);
@@ -126,6 +129,10 @@ public class PlayerHandler : MonoBehaviour
 
 
     #region Player Control
+
+    public ThirdPersonController tpc;
+
+
     void SheathWeapon()
     {
         if (IsWeaponSheath)
@@ -182,6 +189,7 @@ public class PlayerHandler : MonoBehaviour
     public int atkSeq = 0;
     public BoxCollider weaponHitBox;
     public LayerMask attackLayer;
+    public bool attacking = false;
     void Attack()
     {
         string atkName = $"Attack_{atkSeq + 1}";
@@ -191,6 +199,7 @@ public class PlayerHandler : MonoBehaviour
         {
             atkSeq = 0;
         }
+
     }
 
 
