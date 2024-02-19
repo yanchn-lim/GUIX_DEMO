@@ -18,8 +18,8 @@ public class PlayerHandler : MonoBehaviour
 
     public Animator ani;
 
-    float dodgeFrames = 0.6f;
-    float dodgeDist = 2f;
+    public float dodgeFrames = 0.6f;
+    public float dodgeDist = 2f;
     public StarterAssetsInputs input;
 
     public LayerMask dodgeMask;
@@ -166,7 +166,7 @@ public class PlayerHandler : MonoBehaviour
     IEnumerator DodgeMove()
     {
         float currFrame = 0;
-        float timing = 0.016f;
+        float timing = Time.deltaTime;
 
         while (currFrame < dodgeFrames)
         {

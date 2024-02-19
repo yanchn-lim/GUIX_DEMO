@@ -12148,6 +12148,8 @@ MonoBehaviour:
   character: {fileID: 4416926083490954816}
   IsDodging: 0
   ani: {fileID: 6982812147792166538}
+  dodgeFrames: 0.4
+  dodgeDist: 5
   input: {fileID: 135756641490723382}
   dodgeMask:
     serializedVersion: 2
@@ -13128,6 +13130,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size
       value: 0.4147483
+      objectReference: {fileID: 0}
+    - target: {fileID: 2927678517197864225, guid: 511a05214c6644a6e8ff9e78d8d7ed6c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3335721304302093663, guid: 511a05214c6644a6e8ff9e78d8d7ed6c,
         type: 3}
