@@ -93,7 +93,7 @@ public class PlayerHandler : MonoBehaviour
             SheathWeapon();
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && !IsDodging)
+        if (Input.GetKeyDown(KeyCode.Space) && !IsDodging && !attacking)
         {
             Dodge();
         }
@@ -103,7 +103,7 @@ public class PlayerHandler : MonoBehaviour
             OpenInvetory();
         }
 
-        if (Input.GetMouseButtonDown(0) && !IsWeaponSheath)
+        if (Input.GetMouseButtonDown(0) && !IsWeaponSheath && !attacking)
         {
             Attack();
         }
@@ -171,7 +171,7 @@ public class PlayerHandler : MonoBehaviour
         while (currFrame < dodgeFrames)
         {
             currFrame += timing;
-            character.Move(character.transform.forward * dodgeDist * timing);
+            character.Move(character.transform.forward.normalized * dodgeDist * timing);
             yield return new WaitForSeconds(timing);
         }
     }
@@ -179,7 +179,6 @@ public class PlayerHandler : MonoBehaviour
     public void EndDodge()
     {
         IsDodging = false;
-        Debug.Log("dodge ended");
     }
 
 
@@ -192,6 +191,7 @@ public class PlayerHandler : MonoBehaviour
     public bool attacking = false;
     void Attack()
     {
+        attacking = true;
         string atkName = $"Attack_{atkSeq + 1}";
         ani.SetTrigger(atkName);
         atkSeq += 1;
