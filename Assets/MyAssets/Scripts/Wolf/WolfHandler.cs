@@ -44,31 +44,25 @@ public class WolfHandler : MonoBehaviour
 
     private void Update()
     {
-        float currValue = agent.velocity.normalized.magnitude;
-        float hV = currValue > prevValue ? currValue : prevValue;
-        float lV = currValue > prevValue ? prevValue : currValue;
-        float blend = Mathf.Lerp(lV,hV,0.02f);
-        ani.SetFloat("Blend", blend);
-        prevValue = agent.velocity.normalized.magnitude;
-
-        dirToPlayer = playerT.position - transform.position;
+        if(agent.enabled)
+            BlendAnimation();
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            StartCoroutine(Attack());
+            fsm.SetCurrentState(2);
         }
 
         fsm.Update();
     }
 
-    IEnumerator Attack()
+    public void BlendAnimation()
     {
-        agent.isStopped = true;
-        rb.AddForce(transform.up * 10f,ForceMode.Impulse);
-        yield return new WaitForSeconds(0.5f);
-        rb.AddForce(dirToPlayer.normalized * 100f, ForceMode.Impulse);
-        yield return new WaitForSeconds(5f);
-        agent.isStopped = false;
+        float currValue = agent.velocity.normalized.magnitude;
+        float hV = currValue > prevValue ? currValue : prevValue;
+        float lV = currValue > prevValue ? prevValue : currValue;
+        float blend = Mathf.Lerp(lV, hV, 0.02f);
+        ani.SetFloat("Blend", blend);
+        prevValue = agent.velocity.normalized.magnitude;
     }
 
     private void FixedUpdate()
@@ -81,6 +75,6 @@ public class WolfHandler : MonoBehaviour
     public void GetRandomState()
     {
         int state = (int)Random.Range(1, fsm.States.Count);
-        fsm.SetCurrentState(1);
+        fsm.SetCurrentState(state);
     }
 }

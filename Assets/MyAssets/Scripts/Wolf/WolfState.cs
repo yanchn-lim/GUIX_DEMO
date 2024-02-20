@@ -78,9 +78,8 @@ public class Wolf_Roam : WolfState
 
     public override void Update()
     {
-        if(mWolf.agent.velocity.magnitude <= 0.2)
+        if(mWolf.agent.velocity.magnitude <= 0.05f)
         {
-            Debug.Log("ooo");
             mFsm.SetCurrentState((int)Wolf_State.IDLE);
         }
     }
@@ -92,17 +91,31 @@ public class Wolf_Attack : WolfState
     {
         mId = (int)Wolf_State.ATTACK;
     }
+
+
     Rigidbody rb;
+    NavMeshAgent agent;
     public override void Enter()
     {
         Debug.Log("WOLF enter attack");
         rb = mWolf.rb;
-        mWolf.Invoke("GetRandomState", mWolf.delay);
-        Attack();
+        agent = mWolf.agent;
+        mWolf.StartCoroutine(Attack());
     }
 
-    void Attack()
+    IEnumerator Attack()
     {
-        rb.AddForce(rb.transform.forward * 5f,ForceMode.Impulse);
+        agent.isStopped = true;
+        agent.enabled = false;
+        rb.AddForce(mWolf.transform.up * 8f, ForceMode.Impulse);
+        yield return new WaitForSeconds(1f);
+        Vector3 dirToPlayer = mWolf.playerT.position - mWolf.transform.position;
+        dirToPlayer.y = 0;
+        dirToPlayer.Normalize();
+        rb.AddForce(dirToPlayer * 20f, ForceMode.Impulse);
+        yield return new WaitForSeconds(2f);
+        agent.enabled = true;
+        agent.isStopped = false;
+        mFsm.SetCurrentState((int)Wolf_State.IDLE);
     }
 }
