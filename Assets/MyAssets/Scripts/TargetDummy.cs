@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class TargetDummy : MonoBehaviour
 {
+    public GameObject pop;
+    public Transform canvas;
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("OW");
+        if (other.CompareTag("PlayerAttack"))
+        {
+            //take dmg
+            WeaponHit hit = other.GetComponent<WeaponHit>();
+            Instantiate(pop,canvas);
+            hit.OnHit();
+        }
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        Debug.Log($"{other.name} in me");
-    }
+
 }

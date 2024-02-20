@@ -28,6 +28,7 @@ public class Obelisk : Interactable
     public void Yes()
     {
         Debug.Log("YES");
+        MouseHandler.LockMouse();
         SceneManager.LoadScene("TownScene");
     }
 }

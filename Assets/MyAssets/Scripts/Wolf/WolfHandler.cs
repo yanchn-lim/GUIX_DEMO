@@ -22,8 +22,6 @@ public class WolfHandler : MonoBehaviour
     Wolf_Roam roamState;
     Wolf_Attack attackState;
 
-    Vector3 dirToPlayer;
-
     private void Start()
     {
         fsm = new();
@@ -49,7 +47,7 @@ public class WolfHandler : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            fsm.SetCurrentState(2);
+
         }
 
         fsm.Update();

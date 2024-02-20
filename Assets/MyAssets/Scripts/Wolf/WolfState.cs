@@ -107,12 +107,21 @@ public class Wolf_Attack : WolfState
     {
         agent.isStopped = true;
         agent.enabled = false;
-        rb.AddForce(mWolf.transform.up * 8f, ForceMode.Impulse);
-        yield return new WaitForSeconds(1f);
         Vector3 dirToPlayer = mWolf.playerT.position - mWolf.transform.position;
         dirToPlayer.y = 0;
         dirToPlayer.Normalize();
+        mWolf.transform.forward = dirToPlayer;
+
+        //play wolf sound
+
+        rb.AddForce(mWolf.transform.up * 8f, ForceMode.Impulse);
+
+        yield return new WaitForSeconds(1f);
+        dirToPlayer = mWolf.playerT.position - mWolf.transform.position;
+        dirToPlayer.y = 0;
+        dirToPlayer.Normalize();
         rb.AddForce(dirToPlayer * 20f, ForceMode.Impulse);
+
         yield return new WaitForSeconds(2f);
         agent.enabled = true;
         agent.isStopped = false;
