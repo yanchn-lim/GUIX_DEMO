@@ -103,7 +103,7 @@ public class WolfHandler : MonoBehaviour
     {
         int state = (int)Random.Range(1, fsm.States.Count);
         
-        //fsm.SetCurrentState(state);
+        fsm.SetCurrentState(state);
     }
 
     private void OnTriggerEnter(Collider other)

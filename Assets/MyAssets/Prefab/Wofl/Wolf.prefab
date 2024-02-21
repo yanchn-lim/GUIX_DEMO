@@ -798,11 +798,13 @@ MonoBehaviour:
   stat: {fileID: 0}
   ani: {fileID: 7948717912646573435}
   isDead: 0
+  carve: 0
   audioSource: {fileID: 0}
   attackSFX:
   - {fileID: 8300000, guid: 1ebd5abae1ae53f4183868dc3cc01715, type: 3}
   - {fileID: 8300000, guid: 6011f185604836145a94cfd9454e6d8d, type: 3}
   attackHitbox: {fileID: 8807621016988702924}
+  itemDrops: []
   delay: 5
 --- !u!114 &663320350541530082
 MonoBehaviour:
