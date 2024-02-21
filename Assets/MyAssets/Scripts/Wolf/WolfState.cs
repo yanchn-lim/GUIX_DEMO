@@ -95,11 +95,17 @@ public class Wolf_Attack : WolfState
 
     Rigidbody rb;
     NavMeshAgent agent;
+    AudioSource source;
+    AudioClip[] atkSfx;
+    BoxCollider hitbox;
     public override void Enter()
     {
         Debug.Log("WOLF enter attack");
         rb = mWolf.rb;
         agent = mWolf.agent;
+        source = mWolf.audioSource;
+        atkSfx = mWolf.attackSFX;
+        hitbox = mWolf.attackHitbox;
         mWolf.StartCoroutine(Attack());
     }
 
@@ -113,6 +119,7 @@ public class Wolf_Attack : WolfState
         mWolf.transform.forward = dirToPlayer;
 
         //play wolf sound
+        source.PlayOneShot(atkSfx[0]);
 
         rb.AddForce(mWolf.transform.up * 8f, ForceMode.Impulse);
 
@@ -121,8 +128,11 @@ public class Wolf_Attack : WolfState
         dirToPlayer.y = 0;
         dirToPlayer.Normalize();
         rb.AddForce(dirToPlayer * 20f, ForceMode.Impulse);
-
+        hitbox.enabled = true;
+        yield return new WaitForSeconds(0.5f);
+        source.PlayOneShot(atkSfx[1]);
         yield return new WaitForSeconds(2f);
+        hitbox.enabled = false;
         agent.enabled = true;
         agent.isStopped = false;
         mFsm.SetCurrentState((int)Wolf_State.IDLE);

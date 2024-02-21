@@ -13,7 +13,7 @@ public class WolfHandler : MonoBehaviour
     public float rad;
 
     public Transform playerT;
-    public PlayerHandler playerH;
+    public PlayerStat playerH;
     public bool detectedPlayer;
     public Animator ani;
 
@@ -21,9 +21,13 @@ public class WolfHandler : MonoBehaviour
     Wolf_Idle idleState;
     Wolf_Roam roamState;
     Wolf_Attack attackState;
+    public AudioSource audioSource;
+    public AudioClip[] attackSFX;
+    public BoxCollider attackHitbox;
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         fsm = new();
         idleState = new(this);
         roamState = new(this);
@@ -31,11 +35,9 @@ public class WolfHandler : MonoBehaviour
 
         fsm.Add(idleState);
         fsm.Add(roamState);
-        fsm.Add(attackState);
 
         agent = GetComponent<NavMeshAgent>();
         fsm.SetCurrentState(idleState);
-        //StartCoroutine(RandomRoam());
     }
 
     float prevValue;
@@ -74,5 +76,16 @@ public class WolfHandler : MonoBehaviour
     {
         int state = (int)Random.Range(1, fsm.States.Count);
         fsm.SetCurrentState(state);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerT = other.transform;
+            playerH = other.GetComponentInParent<PlayerStat>();
+            detectedPlayer = true;
+            fsm.Add(attackState);
+        }
     }
 }
