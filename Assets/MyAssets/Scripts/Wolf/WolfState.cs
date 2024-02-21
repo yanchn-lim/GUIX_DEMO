@@ -38,7 +38,8 @@ public enum Wolf_State
 {
     IDLE = 0,
     ROAM,
-    ATTACK
+    ATTACK,
+    DEAD
 }
 
 public class Wolf_Idle : WolfState
@@ -106,7 +107,7 @@ public class Wolf_Attack : WolfState
         source = mWolf.audioSource;
         atkSfx = mWolf.attackSFX;
         hitbox = mWolf.attackHitbox;
-        mWolf.StartCoroutine(Attack());
+        att = mWolf.StartCoroutine(Attack());
     }
 
     IEnumerator Attack()
@@ -135,6 +136,36 @@ public class Wolf_Attack : WolfState
         hitbox.enabled = false;
         agent.enabled = true;
         agent.isStopped = false;
+        att = null;
         mFsm.SetCurrentState((int)Wolf_State.IDLE);
     }
+
+    Coroutine att = null;
+
+    public override void Exit()
+    {
+        if (att != null)
+            mWolf.StopCoroutine(att);
+    }
+}
+
+public class Wolf_Dead : WolfState
+{
+    public Wolf_Dead(WolfHandler wolf) : base(wolf)
+    {
+        mId = (int)Wolf_State.DEAD;
+    }
+
+    public override void Enter()
+    {
+        //enter the dead animation
+        mWolf.ani.SetBool("isDead",mWolf.isDead);
+    }
+
+
+    public override void Update()
+    {
+
+    }
+
 }

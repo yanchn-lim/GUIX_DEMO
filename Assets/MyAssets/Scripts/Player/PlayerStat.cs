@@ -54,12 +54,6 @@ public class PlayerStat : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            ReduceHealth(5f);
-            ReduceStam(4f);
-        }
-
         UpdateHUD();
     }
 

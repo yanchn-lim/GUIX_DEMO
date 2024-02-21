@@ -9,6 +9,9 @@ public class PlayerHandler : MonoBehaviour
     public GameObject StatusPanel;
     public GameObject SkillPanel;
     public GameObject InventoryPanel;
+    public GameObject PopUpCanvas;
+    public GameObject DropPopUpPrefab;
+    public Transform itemDropParent;
     public CharacterController character;
     PlayerAbilities PA;
     PlayerStat PS;
@@ -127,11 +130,16 @@ public class PlayerHandler : MonoBehaviour
         }
     }
 
+    public void ReceiveItem(MaterialItem item)
+    {
+        GameObject i = Instantiate(DropPopUpPrefab, itemDropParent);
+        i.GetComponent<DisplayDropItem>().DisplayItemInfo(item);
+        
+    }
 
     #region Player Control
 
     public ThirdPersonController tpc;
-
 
     void SheathWeapon()
     {

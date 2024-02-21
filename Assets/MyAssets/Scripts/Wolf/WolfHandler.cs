@@ -15,23 +15,32 @@ public class WolfHandler : MonoBehaviour
     public Transform playerT;
     public PlayerStat playerH;
     public bool detectedPlayer;
+
+    public WolfStat stat;
     public Animator ani;
+    public bool isDead;
+    public bool carve;
 
     public FSM fsm;
     Wolf_Idle idleState;
     Wolf_Roam roamState;
     Wolf_Attack attackState;
+    Wolf_Dead deadState;
     public AudioSource audioSource;
     public AudioClip[] attackSFX;
     public BoxCollider attackHitbox;
+    public MaterialItem[] itemDrops;
+    
 
     private void Start()
     {
+        stat = GetComponent<WolfStat>();
         audioSource = GetComponent<AudioSource>();
         fsm = new();
         idleState = new(this);
         roamState = new(this);
         attackState = new(this);
+        deadState = new(this);
 
         fsm.Add(idleState);
         fsm.Add(roamState);
@@ -47,12 +56,30 @@ public class WolfHandler : MonoBehaviour
         if(agent.enabled)
             BlendAnimation();
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.X))
         {
 
         }
 
+        if(stat.currHealth <= 0 && !isDead)
+        {
+            isDead = true;
+            TriggerDeath();
+        }
+
         fsm.Update();
+    }
+
+    void TriggerDeath()
+    {
+        fsm.Add(deadState);
+        fsm.SetCurrentState(deadState);
+    }
+
+    public MaterialItem GetRandomItem()
+    {
+        int index = Random.Range(0, itemDrops.Length);
+        return itemDrops[index];
     }
 
     public void BlendAnimation()
@@ -75,12 +102,13 @@ public class WolfHandler : MonoBehaviour
     public void GetRandomState()
     {
         int state = (int)Random.Range(1, fsm.States.Count);
-        fsm.SetCurrentState(state);
+        
+        //fsm.SetCurrentState(state);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !fsm.States.ContainsValue(attackState))
         {
             playerT = other.transform;
             playerH = other.GetComponentInParent<PlayerStat>();

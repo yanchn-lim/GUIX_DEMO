@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
-    SortedDictionary<Item, int> inventory;
+    SortedDictionary<MaterialItem, int> inventory;
 
 
     private void Start()
@@ -12,7 +12,6 @@ public class PlayerInventory : MonoBehaviour
         inventory = new();
         //inventory.Add(new Wolf_Fang(),1);
         //inventory.Add(new Wolf_Claw(), 5);
-
     }
 
     private void Update()

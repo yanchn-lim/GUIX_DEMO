@@ -10,6 +10,7 @@ public class PlayerInputHandler : MonoBehaviour
     public static bool SprintPressed { get; private set; }
     public static bool MovementAbilityPressed { get; private set; }
 
+    public static bool CarvePressed { get; private set; }
     private void Update()
     {
         //change this to new unity input handler for flexibility
@@ -21,7 +22,7 @@ public class PlayerInputHandler : MonoBehaviour
         SprintPressed = Input.GetKey(KeyCode.LeftShift);
         MovementAbilityPressed = Input.GetKeyDown(KeyCode.Q);
         MovementPressed = (HorizontalInput != 0 || VerticalInput != 0) ? true : false;
-
+        CarvePressed = Input.GetKeyDown(KeyCode.F);
     }
 
 }
