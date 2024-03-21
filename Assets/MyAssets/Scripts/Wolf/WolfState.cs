@@ -160,6 +160,8 @@ public class Wolf_Dead : WolfState
     {
         //enter the dead animation
         mWolf.ani.SetBool("isDead",mWolf.isDead);
+        mWolf.agent.isStopped = true;
+        mWolf.agent.enabled = false;
     }
 
 
